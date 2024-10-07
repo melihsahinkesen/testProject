@@ -1,8 +1,16 @@
+import Header from "../src/layouts/Header";
+import Item from "../src/components/Item";
+
 const App = () => {
   return (
-    <div>
-      <p>lorem</p>
-    </div>
+    <>
+      <Header />
+      <div className="container">
+        <div className="row">
+          <Item />
+        </div>
+      </div>
+    </>
   );
 };
 

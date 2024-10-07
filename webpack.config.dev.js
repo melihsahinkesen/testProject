@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 const dotenv = require("dotenv");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = () => {
   const env = dotenv.config({ path: "./.env.dev" }).parsed;
@@ -58,6 +59,11 @@ module.exports = () => {
     plugins: [
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, "./src/index.html"),
+      }),
+      new CopyPlugin({
+        patterns: [
+          { from: "src/assets/img", to: "assets/img" },
+        ],
       }),
       new webpack.ProvidePlugin({
         $: "jquery",
